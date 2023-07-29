@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates :name, presence: true, length: { minimum: 3 }
-  validates :phone, presence: true, uniqueness: true, format: { with: /\A\d{11}\z/ }
-  validates :cpf, presence: true, uniqueness: true, format: { with: /\A\d{11}\z/ }
+  validates :name, :email, :cpf, uniqueness: true, presence: { message: 'é um campo obrigatório' }
+  validates :email, format: { with: /\A[\w.+-]+@\w+\.\w+\z/ }
+  validates :phone, :cpf, format: { with: /\A\d{11}\z/, message: 'deve conter apenas 11 números, sem espaço ou traço' }
 end
