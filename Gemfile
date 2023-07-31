@@ -72,3 +72,7 @@ group :test do
 end
 
 gem "faker"
+
+gem "cpf_cnpj"
+
+gem "phonelib"

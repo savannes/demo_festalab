@@ -7,7 +7,6 @@ class UsersController < ApplicationController
     params[:query].present?
       sql = 'name LIKE :query OR email LIKE :query OR phone LIKE :query OR cpf LIKE :query'
       @users = User.where(sql, query: "%#{params[:query]}%")
-    end
   end
 
   # GET /users/1 or /users/1.json
