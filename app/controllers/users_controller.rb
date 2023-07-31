@@ -4,6 +4,10 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
+    params[:query].present?
+      sql = 'name LIKE :query OR email LIKE :query OR phone LIKE :query OR cpf LIKE :query'
+      @users = User.where(sql, query: "%#{params[:query]}%")
+    end
   end
 
   # GET /users/1 or /users/1.json
@@ -70,4 +74,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :email, :phone, :cpf)
   end
+
 end
