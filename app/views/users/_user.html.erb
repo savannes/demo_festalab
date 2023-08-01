@@ -1,22 +1,29 @@
-<div id="dom_id user">
-  <p>
-    <strong>Name:</strong>
-    <%= user.name %>
-  </p>
 
-  <p>
-    <strong>Email:</strong>
-    <%= user.email %>
-  </p>
 
-  <p>
-    <strong>Phone:</strong>
-    <%= user.phone %>
-  </p>
+    <div class="d-flex">
 
-  <p>
-    <strong>Cpf:</strong>
-    <%= user.cpf %>
-  </p>
+        <div class="dash-title text-center"></div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Email</th>
+              <th scope="col">Telefone</th>
+              <th scope="col">CPF</th>
+            </tr>
+          </thead>
 
-</div>
+          <tbody>
+
+            <tr>
+
+              <td><%=user.name%></td>
+              <td><%=user.email%></td>
+              <td><%=user.phone%></td>
+              <td><%=CPF.new(user.cpf).formatted%></td>
+            </tr>
+
+          </tbody>
+        </table>
+      
+    </div>

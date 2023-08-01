@@ -1,23 +1,49 @@
-<p style="color: green"><%= notice %></p>
+<div class="inside_container">
+    <% if notice%>
+    <div class="alert alert-success" role="alert">
+     <%= notice %>
+    </div>
+    <% end %>
+  <h2>Users</h2>
 
-<h1>Users</h1>
+  <div class="d-flex justify-content-center align-top search_bar">
+    <%= form_with url: users_path, method: :get, class: "form-control" do %>
+      <div class="d-flex align-top">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "search",
+            placeholder: "Find a user"%>
+          <%= submit_tag "Search", class: " btn btn-flat" %>
+      </div>
+    <% end %>
+    <%= button_to "New User", new_user_path, method: :get,class: "btn btn-flat" %>
+  </div>
 
-<%= form_with url: users_path, method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a user"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
 
-<%= link_to "New user", new_user_path %>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">CPF</th>
 
-<div id="users">
-  <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
-  <% end %>
+          </tr>
+        </thead>
+
+        <tbody>
+          <%@users.each do |user|%>
+            <%# <%= render "user", user: user %>
+            <tr>
+              <td><%= link_to user.name, user %></td>
+              <td><%=user.email%></td>
+              <td><%=user.phone%></td>
+              <td><%=CPF.new(user.cpf).formatted%></td>
+
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+
 </div>

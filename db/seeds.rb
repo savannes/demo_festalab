@@ -4,11 +4,11 @@ puts 'Cleaning database...'
 User.destroy_all
 
 puts 'Creating 100 fake users...'
-100.times do
+15.times do
   user = User.new(
     name: Faker::BossaNova.artist,
-    email: Faker::Internet.free_email,
-    phone: Faker::Number.number(digits:11),
+    email: Faker::Internet.email(domain: 'gmail.com'),
+    phone: Faker::PhoneNumber.cell_phone,
     cpf: Faker::IDNumber.brazilian_citizen_number
   )
   user.save!
