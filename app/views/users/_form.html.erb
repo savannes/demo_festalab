@@ -1,0 +1,42 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+
+      <%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="inside_container">
+    <div class="mb-3">
+      <%= form.label "Name", class: "form-label" %>
+      <%= form.text_field :name, class: "form-control", id: "exampleFormControlInput1"%>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label "E-mail", class: "form-label" %>
+      <%= form.text_field :email, class: "form-control", id: "exampleFormControlInput1", placeholder: "name@example.com" %>
+    </div>
+
+      <div class="mb-3">
+      <%= form.label "Phone", class: "form-label" %>
+      <%= form.text_field :phone, class: "form-control", id: "exampleFormControlInput1", placeholder: "(DDD) xxxxx-xxxx" %>
+    </div>
+
+      <div class="mb-3">
+      <%= form.label "CPF", class: "form-label" %>
+      <%= form.text_field :cpf, class: "form-control", id: "exampleFormControlInput1", placeholder: "xxx.xxx.xxx.-xx" %>
+    </div>
+
+      <div class="col-12">
+        <%= form.submit class:"btn btn-flat" %>
+        <%= link_to "Back to Users", users_path, method: :get, class: "btn btn-flat" %>
+      </div>
+  </div>
+<% end %>

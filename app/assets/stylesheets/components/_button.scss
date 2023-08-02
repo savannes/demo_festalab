@@ -1,0 +1,16 @@
+.btn-flat {
+  color: white;
+  padding: 10px 24px;
+  border-radius: 4px;
+  background: rgb(70, 15, 95);
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+  font-size: 14px;
+  margin: 0 15px 0 0 !important;
+
+}
+
+.btn-flat:hover {
+  background: rgb(121, 82, 139);
+  color: white;
+}
