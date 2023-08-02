@@ -5,7 +5,7 @@ Projeto desenvolvido para o processo seletivo de desenvolvedor trainee da empres
 O projeto consiste em uma aplicação para armazenar informações de usuários.
 
 - Foram criadas validações no modelo do usuário para garantir uma padronização na criação de usuários. 
-- Para validação de cpf e telefone foram utilizadas duas bibliotecas: [cpf_cnj](https://github.com/fnando/cpf_cnpj) e [phone_lib](https://github.com/daddyz/phonelib).
+- Para validação de cpf e telefone foram utilizadas duas bibliotecas: [cpf_cnj](https://github.com/fnando/cpf_cnpj) (valida o formato e se o número é verdadeiro) e [phone_lib](https://github.com/daddyz/phonelib)(valida o formato do telefone)
 - Foi criada uma funcionalidade de busca onde é possível buscar um usuário pesquisando por qualquer informação ou parte da informação deste usuário salva no banco de dados.
 - O seed foi criado com uso da biblioteca [Faker](https://github.com/faker-ruby/faker).
 - Foram criados testes unitários com a biblioteca `Rspec` para validar a criação de um novo usuário.
@@ -26,8 +26,9 @@ No diretório `demo_festalab` instale as dependências usando o bundle install.
 bundle install
 ```
 
-Rode as migrações pendentes com rails db:migrate
+Crie o banco de dados e execute as migrações pendentes.
 ```
+rails db:create
 rails db:migrate
 ```
 
@@ -40,7 +41,7 @@ Inicie o servidor utilizando o servidor Rails
 ```
 rails s
 ```
-Acesse o serviço pelo navegador [http://localhost:3000](http://localhost:3000).
+Acesse o serviço pelo navegador [http://localhost:3000/users](http://localhost:3000/users).
 
 Para executar os testes unitários basta usar rspec.
 ```
