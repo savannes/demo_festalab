@@ -82,3 +82,7 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form"
 
 gem "autoprefixer-rails"
+
+group :development, :test do
+  gem 'rspec-rails', '~> 5.0'
+end
